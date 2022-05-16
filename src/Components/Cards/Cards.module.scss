@@ -9,8 +9,25 @@
 .card {
     border: 2px solid #0b5ed7;
     border-radius: 10px;
+    height: 100%;
+    width: 100%;
+
 }
 
 .img {
     border-radius: 10px 10px 0 0;
+    height: 350px;
+    width: 500px;
+    object-fit: fill;
+    // max-height: 500px;
+    // max-width: 300px
 }
+
+// .row {
+//     overflow: hidden;
+// }
+
+// [class*="col-"] {
+//     margin-bottom: -99999px;
+//     padding-bottom: 99999px;
+// }

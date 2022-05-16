@@ -3,5 +3,13 @@
 /* font-family: 'Poppins', sans-serif; */
 
 .ubuntu{
-  font-family: 'Ubuntu', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+
+      color: #FFFFFF;
+      background: #FFFFFF;
+      text-shadow: 2px 2px 0 #86A8E7, 2px -2px 0 #86A8E7, -2px 2px 0 #86A8E7, -2px -2px 0 #86A8E7, 2px 0px 0 #86A8E7, 0px 2px 0 #86A8E7, -2px 0px 0 #86A8E7, 0px -2px 0 #86A8E7;
+      color: #FFFFFF;
+      background: #FFFFFF;
+      
+
 }
