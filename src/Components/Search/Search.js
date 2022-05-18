@@ -58,9 +58,9 @@ const Search = ({ setsearch, search, setUishowdata, setfetcheddata, Uishowdata }
                 onChange={searchthechar} value={search}
             />
 
-            <button className="btn btn-primary shadow " onClick={searchthechar}>
+            {/* <button className="btn btn-primary shadow " onClick={searchthechar}>
                 Search
-            </button>
+            </button> */}
         </div>
 
     )

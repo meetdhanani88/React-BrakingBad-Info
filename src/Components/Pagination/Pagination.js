@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import ReactPaginate from 'react-paginate';
 
-const Pagination = ({ setoffset, offset, fetcheddata, Uishowdata, setUishowdata, setfetcheddata }) => {
+const Pagination = ({ fetcheddata, setUishowdata, setfetcheddata }) => {
+    const firsttime = useRef(true);
 
     // let api = `https://breakingbadapi.com/api/characters?limit=9&offset=${offset}`;
 
@@ -64,8 +65,17 @@ const Pagination = ({ setoffset, offset, fetcheddata, Uishowdata, setUishowdata,
 
     function pagechange(params) {
 
+        if (firsttime.current) {
+            firsttime.current = false;
+            return
+        }
+
+
         let selectedPage = params.selected;
+        // console.log(selectedPage);
         let pageoffset = (9) * (selectedPage);
+        // console.log("fetcheddata", fetcheddata);
+        // console.log(fetcheddata.length)
 
         if (pageoffset >= fetcheddata.length) {
             (async () => {
@@ -80,7 +90,7 @@ const Pagination = ({ setoffset, offset, fetcheddata, Uishowdata, setUishowdata,
                 setUishowdata(data);
             })();
 
-            console.log(fetcheddata);
+            // console.log(fetcheddata);
 
         }
         else {
@@ -92,9 +102,11 @@ const Pagination = ({ setoffset, offset, fetcheddata, Uishowdata, setUishowdata,
 
     return (
         <div>
+
             <ReactPaginate
-                className='pagination justify-content-center gap-4 my-4'
+                className='pagination justify-content-center gap-3 my-3 d-flex flex-wrap'
                 pageCount={7}
+                initialPage={0}
                 previousLabel="prev"
                 nextLabel={"next"}
                 previousClassName={"btn btn-primary"}
@@ -105,10 +117,10 @@ const Pagination = ({ setoffset, offset, fetcheddata, Uishowdata, setUishowdata,
                 previousLinkClassName={"text-decoration-none text-light"}
                 nextLinkClassName={"text-decoration-none text-light"}
                 onPageChange={pagechange}
-
             />
+
         </div>
     )
 }
 
-export default Pagination
+export default Pagination;
